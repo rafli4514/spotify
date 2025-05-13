@@ -7,7 +7,7 @@ router.use(protectRoute, requireAdmin)
 
 router.get("/", getAllSongs)
 router.get("/featured", getFeaturedSongs)
-router.get("made-for-you", getMadeForYouSongs)
+router.get("/made-for-you", getMadeForYouSongs)
 router.get("/trending", getTrendingSongs)
 
 export default router;
