@@ -1,5 +1,6 @@
 import { Song } from "../models/song.model.js";
-import { Album, album } from "../models/album.model.js";
+import { Album } from "../models/album.model.js";
+
 
 const uploadToCloudinary = async (file) => {
   try {
@@ -32,7 +33,7 @@ export const createSong = async (req, res, next) => {
       audioUrl,
       imageUrl,
       duration,
-      duration: albumId || null,
+      albumId: albumId || null,
     });
 
     await song.save();
@@ -74,7 +75,7 @@ export const deleteSong = async (req, res, next) => {
 
 export const createAlbum = async (req, res, next) => {
   try {
-    const { title, artist, releaseDate } = req.body;
+    const { title, artist, releaseYear } = req.body;
     const { imageFile } = req.files;
 
     const imageUrl = await uploadToCloudinary(imageFile);
@@ -83,7 +84,7 @@ export const createAlbum = async (req, res, next) => {
       title,
       artist,
       imageUrl,
-      releaseDate,
+      releaseYear,
     })
 
     await album.save()

@@ -13,6 +13,11 @@ import albumRoutes from "./routes/album.route.js";
 import statRoutes from "./routes/stat.route.js";
 import fileUpload from "express-fileupload";
 
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+  
 dotenv.config();
 
 const app = express();
